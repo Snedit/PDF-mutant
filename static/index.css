@@ -1,0 +1,59 @@
+body{
+    background: #333;
+    color: cyan;
+    
+}
+h1{
+    text-align: center;
+    text-shadow: 0 0 10px ;
+}
+.intro{
+    width: 60vw;
+    text-align: center;
+    border: 1px solid rgb(50, 50, 179);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    font-size: larger;
+}
+
+.drag
+{    margin: auto;
+    width: 50vw;
+    height: 200px;
+    border: 2px dotted red;
+    display: flex;    
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+margin-top: 2%;
+cursor: pointer;
+position: relative;
+font-size: large;
+text-shadow: 0 0 2px;
+}
+.drag:hover{
+    cursor: pointer;
+}
+.drag img
+{ z-index: -1;
+    opacity: 50%;
+    height: 70%;
+    position: absolute;
+    cursor: pointer;
+}
+.upload
+{
+    margin-top: 20px;
+    display: flex;
+
+    justify-content: center;
+}
+.upload button
+{
+    color: darkred;
+    padding: 4px;
+    background-color: lightseagreen;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF mutant</title>
+  </head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+  <body>
+    <h1>Welcome!</h1>
+    <div class="intro">
+      <h2>Intoducing PDF mutant</h2>
+      <p>
+        Welcome to PDF Mutant, the premier online solution for swift and
+        seamless JPG to PDF conversion. In an era where efficiency is paramount,
+        we understand the significance of streamlining document management
+        processes. With PDF Mutant, experience a sophisticated platform that
+        effortlessly transforms your JPG images into high-quality PDF files with
+        unparalleled ease.
+      </p>
+    </div>
+
+    <div
+      class="drag"
+      id="drop-area"
+      ondrop="dropHandler(event)"
+      ondragover="dragOverHandler(event)"
+      ondragenter="dragEnterHandler(event)"
+      ondragleave="dragLeaveHandler(event)"
+    >
+      <span> Upload the files or drag them here </span>
+      <img
+        src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/upload-512.png"
+        alt=""
+      />
+      <input
+        name="up-files"
+        type="file"
+        id="file-input"
+        style="display: none"
+        multiple
+        onchange="handleFiles(this.files)"
+      />
+    </div>
+    <div class="upload"><button>Click to Upload the files</button></div>
+    <script>
+      function dragOverHandler(event) {
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "copy";
+      }
+
+      function dragEnterHandler(event) {
+        document.getElementById("drop-area").classList.add("highlight");
+      }
+
+      function dragLeaveHandler(event) {
+        document.getElementById("drop-area").classList.remove("highlight");
+      }
+
+      function dropHandler(event) {
+        event.preventDefault();
+        document.getElementById("drop-area").classList.remove("highlight");
+
+        const files = event.dataTransfer.files;
+        handleFiles(files);
+      }
+
+      function handleFiles(files) {
+        for (const file of files) {
+          console.log("File:", file.name);
+
+          // You can perform actions with the file here, e.g., upload to a server.
+        }
+      }
+
+      // Clicking on the drop area triggers the hidden file input
+      document.getElementById("drop-area").addEventListener("click", () => {
+        document.getElementById("file-input").click();
+      });
+    </script>
+  </body>
+</html>
