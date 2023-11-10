@@ -5,7 +5,7 @@ body{
 }
 h1{
     text-align: center;
-    text-shadow: 0 0 10px ;
+    text-shadow: 0 0 9px ;
 }
 .intro{
     width: 60vw;
@@ -18,17 +18,23 @@ h1{
     margin: auto;
     font-size: larger;
 }
+h1 span{
+    color: aliceblue;
+    text-shadow: 0 0 0px
+}
 
 .drag
 {    margin: auto;
-    width: 50vw;
+    width: fit-content;
     height: 200px;
     border: 2px dotted red;
     display: flex;    
     align-items: center;
+    flex-direction: column;
+    padding: 4px;
     justify-content: space-around;
     flex-wrap: wrap;
-margin-top: 2%;
+margin-top: 44px;
 cursor: pointer;
 position: relative;
 font-size: large;
@@ -57,3 +63,15 @@ text-shadow: 0 0 2px;
     padding: 4px;
     background-color: lightseagreen;
 }
+.displayF{
+    margin-top: 20px;
+display: flex;
+position: fixed;
+width: 90vw;
+height: 50px;
+}
+.displayF img{
+    height: 100%;
+
+}
+

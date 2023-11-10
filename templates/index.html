@@ -7,16 +7,13 @@
   </head>
   <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
   <body>
-    <h1>Welcome!</h1>
+    <h1><span>Greetings from </span>Soham!</h1>
     <div class="intro">
-      <h2>Intoducing PDF mutant</h2>
+      <h2>Welcome to PDF Mutant</h2>
       <p>
-        Welcome to PDF Mutant, the premier online solution for swift and
-        seamless JPG to PDF conversion. In an era where efficiency is paramount,
-        we understand the significance of streamlining document management
-        processes. With PDF Mutant, experience a sophisticated platform that
-        effortlessly transforms your JPG images into high-quality PDF files with
-        unparalleled ease.
+        <marquee behavior="" direction="">
+          Your go-to jpeg/jpg to PDF converter.
+        </marquee>
       </p>
     </div>
 
@@ -28,27 +25,49 @@
       ondragenter="dragEnterHandler(event)"
       ondragleave="dragLeaveHandler(event)"
     >
-      <span> Upload the files or drag them here </span>
+      <span style="text-align: center; margin: auto; flex-direction: column">
+        Upload the files or drag them here
+      </span>
       <img
         src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/upload-512.png"
         alt=""
       />
-      <input
-        name="up-files"
-        type="file"
-        id="file-input"
-        style="display: none"
-        multiple
-        onchange="handleFiles(this.files)"
-      />
+
+      <form action="/convert" method="POST" enctype="multipart/form-data">
+        <input
+          name="up-files"
+          type="file"
+          id="file-input"
+          style="display: none"
+          multiple
+          onchange="handleFiles(this.files);
+          render(this.files)"
+          ;
+        />
+        <button type="submit" onclick="">Click here to Convert</button>
+      </form>
     </div>
-    <div class="upload"><button>Click to Upload the files</button></div>
+    <div class="displayF"></div>
     <script>
       function dragOverHandler(event) {
         event.preventDefault();
         event.dataTransfer.dropEffect = "copy";
       }
+      function render(files) {
+        let fileDisplay = document.querySelector(".displayF");
 
+        for (let i = 0; i < files.length; i++) {
+          // Create a new image element
+          var image = `<div><img class = "renderImg" src= "${URL.createObjectURL(
+            files[i]
+          )}" ></div>`;
+
+          fileDisplay.innerHTML += image;
+        }
+        if (files.length > 0)
+          document.querySelector(".drag").style.border = "2px dotted lime";
+        console.log(fileDisplay.innerHTML);
+      }
       function dragEnterHandler(event) {
         document.getElementById("drop-area").classList.add("highlight");
       }
