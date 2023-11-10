@@ -61,4 +61,4 @@ def downL(outFile):
     return send_file(outFile, as_attachment=True)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
