@@ -72,6 +72,11 @@ height: 50px;
 }
 .displayF img{
     height: 100%;
+    width: 100%;
 
+}
+.displayF div{
+    width: 50px;
+    margin-right: 20px;
 }
 
